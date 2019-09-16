@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ally_\\source\\repos\\Zork\\Zork\\Zork.csproj",
+      "projectUniqueName": "C:\\Users\\ally_\\Documents\\GitHub\\Zork\\Zork\\Zork.csproj",
       "projectName": "Zork",
-      "projectPath": "C:\\Users\\ally_\\source\\repos\\Zork\\Zork\\Zork.csproj",
+      "projectPath": "C:\\Users\\ally_\\Documents\\GitHub\\Zork\\Zork\\Zork.csproj",
       "packagesPath": "C:\\Users\\ally_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ally_\\source\\repos\\Zork\\Zork\\obj\\",
+      "outputPath": "C:\\Users\\ally_\\Documents\\GitHub\\Zork\\Zork\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
