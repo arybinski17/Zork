@@ -51,5 +51,10 @@ namespace Zork
                 }
             }
         private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.UNKNOWN;
+
+        private static string[,] Rooms =
+        {
+            { "North of House", "South of House", "West of House", "East of House"}
+        };
     }
  }
