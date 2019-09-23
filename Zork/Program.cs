@@ -14,6 +14,19 @@ namespace Zork
         WEST,
         UNKNOWN
     }
+    public class Room
+    {
+        public string Name { get; }
+
+        public string Description { get; set; }
+
+        public Room(string name, string description = "")
+        {
+            Name = name;
+            Description = description;
+        }
+        public override string ToString() => Name;
+    }
 
     public static class Assert
     {
@@ -28,7 +41,7 @@ namespace Zork
     }
     internal class Program
     {
-        private static string CurrentRoom
+        private static Room CurrentRoom
         {
             get
             {
@@ -53,7 +66,7 @@ namespace Zork
                         break;
 
                     case Commands.LOOK:
-                        Console.WriteLine("This is an open field west of a white house, with a boarded front door. \nA rubber mat saying 'Welcome to Zork!' lies by the door.");
+                        Console.WriteLine(CurrentRoom.Description);
                         break;
 
                     case Commands.NORTH:
@@ -106,12 +119,12 @@ namespace Zork
 
         private static bool IsDirection(Commands command) => Directions.Contains(command);
 
-        private static readonly string[,] Rooms =
+        private static readonly Room[,] Rooms =
         {
-            {"Rocky Trail", "South of House", "Canyon View"},
-            {"Forest", "West of House", "Behind House"},
-            {"Dense Woods", "North of House", "Clearing"},
-        };
+            {new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View")},
+            {new Room("Forest"), new Room("West of House"), new Room("Behind House")},
+            {new Room("Dense Woods"), new Room("North of House"), new Room("Clearing")}
+         };
 
         private static readonly List<Commands> Directions = new List<Commands>
     {
