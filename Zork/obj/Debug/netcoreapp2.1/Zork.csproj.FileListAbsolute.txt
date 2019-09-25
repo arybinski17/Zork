@@ -20,3 +20,4 @@ C:\Users\ally_\Documents\GitHub\Zork\Zork\bin\Debug\netcoreapp2.1\Zork.runtimeco
 C:\Users\ally_\Documents\GitHub\Zork\Zork\bin\Debug\netcoreapp2.1\Zork.runtimeconfig.dev.json
 C:\Users\ally_\Documents\GitHub\Zork\Zork\bin\Debug\netcoreapp2.1\Zork.dll
 C:\Users\ally_\Documents\GitHub\Zork\Zork\bin\Debug\netcoreapp2.1\Zork.pdb
+C:\Users\ally_\Documents\GitHub\Zork\Zork\bin\Debug\netcoreapp2.1\Rooms.txt
