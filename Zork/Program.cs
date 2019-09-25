@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Zork
 {
+
     enum Commands
     {
         QUIT,
@@ -41,6 +44,10 @@ namespace Zork
     }
     internal class Program
     {
+        private enum CommandLineArguments
+        {
+            RoomsFilename = 0
+        }
         private static Room CurrentRoom
         {
             get
@@ -48,9 +55,16 @@ namespace Zork
                 return Rooms[Location.Row, Location.Column];
             }
         }
+
+        private enum Fields
+        {
+            Name = 0,
+            Descriptions
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Zork!");
+
 
 
             Room previousRoom = null;
@@ -126,14 +140,13 @@ namespace Zork
 
         private static bool IsDirection(Commands command) => Directions.Contains(command);
 
-        private static readonly Room[,] Rooms =
+        private static Room[,] Rooms =
         {
             {new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View")},
             {new Room("Forest"), new Room("West of House"), new Room("Behind House")},
             {new Room("Dense Woods"), new Room("North of House"), new Room("Clearing")}
          };
 
-        private static readonly Dictionary<string, Room> RoomMap;
 
 
         private static readonly List<Commands> Directions = new List<Commands>
@@ -143,6 +156,12 @@ namespace Zork
         Commands.EAST,
         Commands.WEST,
     };
+        const string defaultRoomsFilename = "Rooms.json";
+        string roomsFilename = (args.Length > 0 ? args[(int)CommandLineArguments.RoomsFilename] : defaultRoomsFilename);
+        private static void InitializeRoom(string roomsFilename) =>
+            Rooms = JsonConvert.DeserializeObject<Room[,]>(File.ReadAllText(roomsFilename));
+
         private static (int Row, int Column) Location = (1, 1);
+
     }
 }
